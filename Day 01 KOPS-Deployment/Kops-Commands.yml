@@ -25,6 +25,15 @@ kops create cluster --name=vineethbk.xyz \
 --dns-zone=vineethbk.xyz --dry-run --output yaml
 
 
+kops create cluster --name=vineethbk.xyz \
+--state=s3://vineethbk.xyz --zones=ap-south-1a \
+--node-count=2 --control-plane-count=1 --node-size=t3.small --control-plane-size=t3.medium \
+--control-plane-zones=ap-south-1a --control-plane-volume-size 10 --node-volume-size 10 \
+--topology private --networking calico \
+--ssh-public-key ~/.ssh/id_ed25519.pub \
+--dns-zone=vineethbk.xyz --yes
+
+
 
 # 6 Node cluster 
 
